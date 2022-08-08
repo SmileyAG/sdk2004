@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 0 1 * *' # Monthly
+
+jobs:
+  win32:
+    name: Win32
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Install Visual C++ 6.0
+      run: |
+        git clone --depth 1 https://github.com/SmileyAG/MSVC600
+    - name: Build
+      shell: cmd
+      run: |
+        call MSVC600/VC98/Bin/VCVars32.bat
+        msdev src_mod/cl_dll/client.dsp /make "client - Win32 Release HL2"
+    - name: Upload arficacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: Win32
+        path: |
+          src_mod/cl_dll/cl_dll___Win32_HL2_Release/client.dll
+          src_mod/cl_dll/cl_dll___Win32_HL2_Release/client.pdb
