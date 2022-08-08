@@ -1,11 +1,8 @@
-*.lib filter=lfs diff=lfs merge=lfs -text
-*.a filter=lfs diff=lfs merge=lfs -text
-*.exe filter=lfs diff=lfs merge=lfs -text
-*.so filter=lfs diff=lfs merge=lfs -text
-*.dll filter=lfs diff=lfs merge=lfs -text
-*.dylib filter=lfs diff=lfs merge=lfs -text
-*.mdl filter=lfs diff=lfs merge=lfs -text
-*.bsp filter=lfs diff=lfs merge=lfs -text
-*.vtf filter=lfs diff=lfs merge=lfs -text
-*.phy filter=lfs diff=lfs merge=lfs -text
+# Force CRLF for Windows files:
+*.bat text eol=crlf
+*.dsp text eol=crlf
+*.dsw text eol=crlf
+*.sln text eol=crlf
+*.vcxproj text eol=crlf
+*.vcxproj.filters text eol=crlf
 * !text !filter !merge !diff
