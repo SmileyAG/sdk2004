@@ -22,6 +22,10 @@ jobs:
       run: |
         call MSVC600/VC98/Bin/VCVars32.bat
         msdev src_mod/cl_dll/client.dsp /make "client - Win32 Release HL2"
+        msdev src_mod/cl_dll/client.dsp /make "client - Win32 Debug HL2"
+        msdev src_mod/dlls/hl.dsp /make "hl - Win32 Release HL2"
+        msdev src_mod/dlls/hl.dsp /make "hl - Win32 Debug HL2"
+      
     - name: Upload arficacts
       uses: actions/upload-artifact@v3
       with:
@@ -29,3 +33,9 @@ jobs:
         path: |
           src_mod/cl_dll/cl_dll___Win32_HL2_Release/client.dll
           src_mod/cl_dll/cl_dll___Win32_HL2_Release/client.pdb
+          src_mod/cl_dll/cl_dll___Win32_HL2_Debug/client.dll
+          src_mod/cl_dll/cl_dll___Win32_HL2_Debug/client.pdb
+          src_mod/dlls/Release_hl2/server.dll
+          src_mod/dlls/Release_hl2/server.pdb
+          src_mod/dlls/Debug_hl2/server.dll
+          src_mod/dlls/Debug_hl2/server.pdb
