@@ -1,6 +1,0 @@
-"LightmappedGeneric"
-{
-	"$basetexture" "sdk/bumpspecular"
-	"$bumpmap" "sdk/bumpspecular_normal"
-	"$envmap" "env_cubemap"
-}
